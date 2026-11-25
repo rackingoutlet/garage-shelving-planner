@@ -135,6 +135,7 @@ a{color:#1f7a4d}
 </main>
 <footer><p>Free and open source (MIT licence). Built and maintained by <a href="https://rackingoutlet.co.uk/?utm_source=github&utm_medium=referral&utm_campaign=garage_shelving_planner&utm_content=footer" rel="noopener">RackingOutlet</a>, a Manchester supplier of 800kg boltless shelving.</p></footer>
 <script>
+// Note: no double-ampersand operators here; WordPress encodes them inside Custom HTML blocks.
 (function(){
 const root = document.querySelector(".gsp");
 const $ = id => root.querySelector("#gsp-" + id);
@@ -168,7 +169,7 @@ function plan(){
     backDepth = 0.6;
     leftDepth = rightDepth = pickDepth((W - aisle)/2);
   }
-  if (backDepth && L - backDepth < 1) backDepth = 0;
+  if (backDepth) { if (L - backDepth < 1) backDepth = 0; }
 
   const sideRun = Math.max(0, L - DOOR_REVEAL - backDepth);
   const backRun = W;
@@ -187,10 +188,10 @@ function plan(){
   const boxes = tierGap >= BOX.h + 0.05 ? walls.reduce((a,w)=>a + w.bays * tiers * Math.max(boxesPerShelf(w), boxesPerShelfAlt(w)),0) : 0;
 
   if (bh > H) alerts.push(["bad",`The ${fmt(bh)}m bay is taller than the ${fmt(H)}m usable height. Choose a shorter bay or check the door track position.`]);
-  if (carOn && !backDepth) alerts.push(["warn",`With a ${fmt(cl)}m car, less than 0.3m is left behind it, so the back wall cannot take shelving. Wall-mounted or overhead storage may suit that space.`]);
-  walls.forEach(w => { if (w.depth && !w.bays) alerts.push(["warn",`${w.name}: ${fmt(w.run)}m of wall is shorter than one ${fmt(bw)}m bay. A narrower bay would fit there.`]); });
+  if (carOn) if (!backDepth) alerts.push(["warn",`With a ${fmt(cl)}m car, less than 0.3m is left behind it, so the back wall cannot take shelving. Wall-mounted or overhead storage may suit that space.`]);
+  walls.forEach(w => { if (w.depth) if (!w.bays) alerts.push(["warn",`${w.name}: ${fmt(w.run)}m of wall is shorter than one ${fmt(bw)}m bay. A narrower bay would fit there.`]); });
   if (tierGap < BOX.h + 0.05) alerts.push(["warn",`Shelves are about ${fmt(tierGap*100,0)}cm apart, too tight for a standard 64L storage box (about 38cm tall). Fewer shelves per bay would help.`]);
-  if (carOn && leftDepth && leftDepth < 0.6) alerts.push(["warn",`The passenger side has room for ${leftDepth*1000}mm-deep shelving only. Shallow shelves suit paint tins, tools and small boxes.`]);
+  if (carOn) if (leftDepth) if (leftDepth < 0.6) alerts.push(["warn",`The passenger side has room for ${leftDepth*1000}mm-deep shelving only. Shallow shelves suit paint tins, tools and small boxes.`]);
   if (!alerts.length || alerts.every(a=>a[0]!=="bad")) alerts.push(["ok",`Heaviest items belong on the bottom shelf, and tall bays should be fixed to the wall. Shelves about ${fmt(tierGap*100,0)}cm apart fit standard storage boxes with room to lift them out.`]);
 
   // summary
@@ -237,7 +238,7 @@ function draw(p){
 function syncCar(){
   const v = $("car").value;
   root.querySelectorAll(".carf").forEach(e=>e.classList.toggle("is-hidden", v==="none"));
-  if (v!=="none" && v!=="custom"){ const [w,l]=v.split(","); $("cw").value=w; $("cl").value=l; }
+  if (["none","custom"].indexOf(v) < 0){ const [w,l]=v.split(","); $("cw").value=w; $("cl").value=l; }
 }
 $("preset").addEventListener("input", ()=>{ const v=$("preset").value; if(v!=="custom"){ const [w,l]=v.split(","); $("w").value=w; $("l").value=l; } plan(); });
 $("car").addEventListener("input", ()=>{ syncCar(); plan(); });
