@@ -43,6 +43,11 @@ There is no single national minimum. Many older single garages measure roughly 2
 
 Often only on the back wall. A 3m wide garage holding a mid-size SUV around 2.08m wide with mirrors, plus about 0.6m to open the driver door, leaves roughly 0.2m spare, which is not enough for side shelving. Smaller cars can leave room for 300mm shelving on the passenger side. Entering the car's real width and length into the planner gives a wall-by-wall answer.
 
+## Guides
+
+- [How deep should garage shelves be? Worked examples](docs/how-deep-should-garage-shelves-be.md)
+- [UK single garage dimensions: old vs new sizes](docs/uk-garage-dimensions.md)
+
 ## Related tool
 
 - [Shelving load calculator](https://github.com/rackingoutlet/shelving-load-calculator): checks the weight on each shelf against the shelf and bay rating.
