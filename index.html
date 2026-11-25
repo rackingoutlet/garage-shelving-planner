@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garage Shelving Planner – How Much Shelving Fits a UK Garage</title>
+<meta name="description" content="Free garage shelving planner. Enter the garage size and the car that parks in it to see which walls take shelving, how deep it can be and how many bays fit.">
+<link rel="canonical" href="https://rackingoutlet.github.io/garage-shelving-planner/">
+<meta property="og:title" content="Garage Shelving Planner – How Much Shelving Fits a UK Garage">
+<meta property="og:description" content="See which walls take shelving, how deep it can be and how many bays fit, with or without a car inside.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rackingoutlet.github.io/garage-shelving-planner/">
+<meta property="og:image" content="https://rackingoutlet.github.io/garage-shelving-planner/screenshot.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Garage Shelving Planner", "url": "https://rackingoutlet.github.io/garage-shelving-planner/", "description": "Free UK garage shelving planner that works out how many shelving bays fit in a garage, how deep the shelves can be and how much they hold, with or without a car parked inside.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (runs in the browser)", "inLanguage": "en-GB", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "creator": {"@type": "Organization", "name": "RackingOutlet", "url": "https://rackingoutlet.co.uk/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How deep should garage shelves be?", "acceptedAnswer": {"@type": "Answer", "text": "Where a car parks alongside, 300mm to 450mm deep shelving usually fits without blocking the doors, and it suits paint tins, tools and small boxes. On the back wall, or in a garage used only for storage, 600mm deep shelving holds a standard 64L storage box lengthways and makes better use of the floor. The planner checks each wall and picks the deepest of 600mm, 450mm or 300mm that fits."}}, {"@type": "Question", "name": "How high should garage shelves be?", "acceptedAnswer": {"@type": "Answer", "text": "Freestanding garage bays are commonly around 1.8m to 2m tall, but the real limit is the lowest point of the ceiling or an up-and-over door track where the shelving stands. Inside the bay, shelves about 40cm to 50cm apart fit standard storage boxes with room to lift them out, and the heaviest items belong on the bottom shelf."}}, {"@type": "Question", "name": "What are standard single garage dimensions in the UK?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single national minimum. Many older single garages measure roughly 2.4m wide by 4.9m long inside. Newer council parking standards often expect 3m by 6m internally before a garage counts as a parking space, and some councils, such as Essex, ask for 3m by 7m."}}, {"@type": "Question", "name": "Can a car and shelving both fit in a single garage?", "acceptedAnswer": {"@type": "Answer", "text": "Often only on the back wall. A 3m wide garage holding a mid-size SUV around 2.08m wide with mirrors, plus about 0.6m to open the driver door, leaves roughly 0.2m spare, which is not enough for side shelving. Smaller cars can leave room for 300mm shelving on the passenger side. Entering the car's real width and length into the planner gives a wall-by-wall answer."}}, {"@type": "Question", "name": "Is 600mm or 300mm deep shelving better for a garage?", "acceptedAnswer": {"@type": "Answer", "text": "600mm shelving stores more per bay and takes full-size storage boxes, so it is the better choice wherever floor space allows. 300mm shelving is the practical option beside a parked car or in a narrow garage, where it keeps a clear path to the doors."}}]}</script>
+<style>
+body{margin:0;background:#f4f6f8;color:#14202e;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:#14202e;color:#fff;padding:40px 16px 32px}
+header .wrap,main,footer{max-width:960px;margin:0 auto}
+header h1{font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.15;margin:0 0 10px;text-wrap:balance}
+header p{margin:0;color:#c9d3de;max-width:680px}
+main{padding:24px 16px 48px}
+.prose{background:#fff;border:1px solid #dde2e8;border-radius:10px;padding:20px;margin:0 0 20px}
+.prose h2{font-size:1.25rem;margin:0 0 10px}.prose h3{font-size:1.05rem;margin:18px 0 6px}.prose p{margin:0 0 10px}
+footer{padding:0 16px 40px;color:#5a6675;font-size:.9rem}
+a{color:#1f7a4d}
+.gsp{--bg:#f4f6f8;--surface:#fff;--ink:#14202e;--muted:#5a6675;--line:#dde2e8;--accent:#1f7a4d;--warn:#9a5600;--warn-bg:#fdf1de;--bad:#b42318;--bad-bg:#fdecea;--ok-bg:#e6f4ec;color:var(--ink);font-size:16px;line-height:1.55}
+.gsp *{box-sizing:border-box}
+.gsp .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 20px}
+.gsp h2{font-size:1.25rem !important;margin:0 0 14px !important;line-height:1.3}
+.gsp .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.gsp label{display:block;font-size:.875rem;color:var(--muted);margin-bottom:4px}
+.gsp input,.gsp select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:44px;margin:0}
+.gsp input:focus,.gsp select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.gsp .hint{margin:12px 0 0;color:var(--muted);font-size:.9rem}
+.gsp .is-hidden{display:none !important}
+.gsp .plan-wrap{background:var(--bg);border-radius:8px;padding:12px;margin-bottom:14px}
+.gsp svg{display:block;width:100%;height:auto;max-height:460px}
+.gsp .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.gsp .stat{background:var(--bg);border-radius:8px;padding:14px}
+.gsp .stat b{display:block;font-size:1.5rem}
+.gsp .stat small{color:var(--muted)}
+.gsp table{width:100%;border-collapse:collapse;font-size:.95rem;margin:0}
+.gsp th,.gsp td{text-align:left;padding:8px;border:0;border-bottom:1px solid var(--line)}
+.gsp th{color:var(--muted);font-weight:600}
+.gsp td:last-child,.gsp th:last-child{text-align:right}
+.gsp .alert{border-radius:8px;padding:12px 14px;margin-top:12px;background:var(--ok-bg)}
+.gsp .alert.warn{background:var(--warn-bg)}.gsp .alert.bad{background:var(--bad-bg)}
+.gsp .cta p{margin:0 0 14px}
+.gsp .ro-cta{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:8px;background:#20a451;color:#fff !important;font-weight:600;text-decoration:none;margin:4px 8px 4px 0}
+.gsp .ro-cta-ghost{background:#fff;color:#14202e !important;border:1px solid #dde2e8}
+@media (max-width:560px){.gsp .card{padding:16px}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Garage Shelving Planner</h1><p>Most UK single garages were sized for cars that were narrower than today's SUVs, so the space left for shelving is often smaller than it looks. This free garage shelving planner takes the garage's internal size and the car that parks in it, then works out which walls can take shelving, how deep it can be and how many bays fit.</p></div></header>
+<main>
+<div class="gsp">
+  <section class="card" aria-labelledby="gsp-s1">
+    <h2 id="gsp-s1">1. Garage size</h2>
+    <div class="grid">
+      <div><label for="gsp-preset">Garage type</label>
+        <select id="gsp-preset">
+          <option value="2.4,4.9">Older UK single garage (about 2.4m × 4.9m)</option>
+          <option value="3,6" selected>Newer UK single garage (3m × 6m)</option>
+          <option value="3,7">Long single garage (3m × 7m)</option>
+          <option value="custom">Custom size</option>
+        </select></div>
+      <div><label for="gsp-w">Internal width (m)</label><input id="gsp-w" type="number" step="0.05" min="1.5" value="3"></div>
+      <div><label for="gsp-l">Internal length (m)</label><input id="gsp-l" type="number" step="0.05" min="2" value="6"></div>
+      <div><label for="gsp-h">Usable height (m)</label><input id="gsp-h" type="number" step="0.05" min="1" value="2.2"></div>
+    </div>
+    <p class="hint">Measure inside the walls, not the outside of the building. For usable height, measure to the lowest point of an up-and-over door track where shelving will stand.</p>
+  </section>
+
+  <section class="card" aria-labelledby="gsp-s2">
+    <h2 id="gsp-s2">2. Car</h2>
+    <div class="grid">
+      <div><label for="gsp-car">Car parked inside?</label>
+        <select id="gsp-car">
+          <option value="none">No car, storage only</option>
+          <option value="1.93,4.19">Yes, small SUV (e.g. Ford Puma)</option>
+          <option value="2.08,4.52" selected>Yes, mid-size SUV (e.g. Kia Sportage)</option>
+          <option value="2.13,4.75">Yes, large SUV (e.g. Tesla Model Y)</option>
+          <option value="custom">Yes, custom size</option>
+        </select></div>
+      <div class="carf"><label for="gsp-cw">Car width incl. mirrors (m)</label><input id="gsp-cw" type="number" step="0.01" value="2.08"></div>
+      <div class="carf"><label for="gsp-cl">Car length (m)</label><input id="gsp-cl" type="number" step="0.01" value="4.52"></div>
+      <div class="carf"><label for="gsp-dd">Space to open driver door (m)</label><input id="gsp-dd" type="number" step="0.05" value="0.6"></div>
+      <div class="carf"><label for="gsp-dp">Space on passenger side (m)</label><input id="gsp-dp" type="number" step="0.05" value="0.1"></div>
+    </div>
+    <p class="hint carf">Car sizes are approximate; check the handbook for the exact width with mirrors. About 0.6m lets a driver open the door and step out. The passenger-side gap only needs to clear the mirror unless passengers also get out inside the garage.</p>
+  </section>
+
+  <section class="card" aria-labelledby="gsp-s3">
+    <h2 id="gsp-s3">3. Shelving</h2>
+    <div class="grid">
+      <div><label for="gsp-bw">Bay width (m)</label><input id="gsp-bw" type="number" step="0.1" min="0.5" value="2"></div>
+      <div><label for="gsp-bh">Bay height (m)</label><input id="gsp-bh" type="number" step="0.1" min="0.5" value="2"></div>
+      <div><label for="gsp-tiers">Shelves per bay</label><input id="gsp-tiers" type="number" min="1" max="8" value="4"></div>
+      <div><label for="gsp-rating">Rating per bay (kg)</label><input id="gsp-rating" type="number" min="1" value="800"></div>
+    </div>
+    <p class="hint">Defaults match a 2m × 2m boltless bay with four 200kg shelves (800kg per bay). The planner tries 600mm, 450mm and 300mm shelf depths and picks the deepest that fits each wall.</p>
+  </section>
+
+  <section class="card" aria-labelledby="gsp-s4" aria-live="polite">
+    <h2 id="gsp-s4">4. Plan</h2>
+    <div class="plan-wrap"><svg id="gsp-svg" role="img" aria-label="Top-down garage plan"></svg></div>
+    <div class="summary" id="gsp-summary"></div>
+    <table class="walls"><thead><tr><th>Wall</th><th>Shelf depth</th><th>Bays</th></tr></thead><tbody id="gsp-walls"></tbody></table>
+    <div id="gsp-alerts"></div>
+  </section>
+<section class="card cta"><h2>Shelving for the garage</h2><p>The 2m boltless shelving bay is 2m high and 600mm deep, rated at 200kg per shelf and 800kg per bay, and assembles with a rubber mallet. Collect from 1A Derby Street, Manchester, or ask about delivery.</p><a class="ro-cta" href="https://rackingoutlet.co.uk/product/heavy-duty-metal-shelving-800kg-capacity/?utm_source=github&utm_medium=referral&utm_campaign=garage_shelving_planner&utm_content=result_cta">See the 800kg shelving</a></section>
+</div>
+<section class="prose" aria-labelledby="faq"><h2 id="faq">Garage shelving: common questions</h2>
+<h3>How deep should garage shelves be?</h3>
+<p>Where a car parks alongside, 300mm to 450mm deep shelving usually fits without blocking the doors, and it suits paint tins, tools and small boxes. On the back wall, or in a garage used only for storage, 600mm deep shelving holds a standard 64L storage box lengthways and makes better use of the floor. The planner checks each wall and picks the deepest of 600mm, 450mm or 300mm that fits.</p>
+<h3>How high should garage shelves be?</h3>
+<p>Freestanding garage bays are commonly around 1.8m to 2m tall, but the real limit is the lowest point of the ceiling or an up-and-over door track where the shelving stands. Inside the bay, shelves about 40cm to 50cm apart fit standard storage boxes with room to lift them out, and the heaviest items belong on the bottom shelf.</p>
+<h3>What are standard single garage dimensions in the UK?</h3>
+<p>There is no single national minimum. Many older single garages measure roughly 2.4m wide by 4.9m long inside. Newer council parking standards often expect 3m by 6m internally before a garage counts as a parking space, and some councils, such as Essex, ask for 3m by 7m.</p>
+<h3>Can a car and shelving both fit in a single garage?</h3>
+<p>Often only on the back wall. A 3m wide garage holding a mid-size SUV around 2.08m wide with mirrors, plus about 0.6m to open the driver door, leaves roughly 0.2m spare, which is not enough for side shelving. Smaller cars can leave room for 300mm shelving on the passenger side. Entering the car's real width and length into the planner gives a wall-by-wall answer.</p>
+<h3>Is 600mm or 300mm deep shelving better for a garage?</h3>
+<p>600mm shelving stores more per bay and takes full-size storage boxes, so it is the better choice wherever floor space allows. 300mm shelving is the practical option beside a parked car or in a narrow garage, where it keeps a clear path to the doors.</p>
+</section>
+<section class="prose" aria-labelledby="src"><h2 id="src">Sources for the garage and car sizes</h2><ul>
+<li><a href="https://www.homebuilding.co.uk/advice/garage-size" rel="noopener">Homebuilding & Renovating: garage sizes</a></li>
+<li><a href="https://www.northlanarkshire.gov.uk/sites/default/files/2023-12/Residential%20Parking%20Provision.pdf" rel="noopener">North Lanarkshire Council: residential parking provision</a></li>
+<li><a href="https://www.essexdesignguide.co.uk/design-details/2024-essex-parking-guidance/residents-parking/" rel="noopener">Essex Design Guide: residents parking</a></li>
+<li><a href="https://www.directlinegroup.co.uk/en/news/brand-news/2024/20112024.html" rel="noopener">Direct Line Group (2024): best-selling cars and garage widths</a></li>
+</ul><p>Car sizes are approximate and vary by model year and trim. The planner is a guide; measure the garage and car before buying shelving.</p></section>
+<section class="prose"><h2>Check the weight as well as the space</h2><p>Once the bays are planned, the <a href="https://rackingoutlet.github.io/shelving-load-calculator/">shelving load calculator</a> adds up paint tins, boxes, tools and tyres shelf by shelf and checks them against the shelf and bay rating.</p></section>
+</main>
+<footer><p>Free and open source (MIT licence). Built and maintained by <a href="https://rackingoutlet.co.uk/?utm_source=github&utm_medium=referral&utm_campaign=garage_shelving_planner&utm_content=footer" rel="noopener">RackingOutlet</a>, a Manchester supplier of 800kg boltless shelving.</p></footer>
+<script>
+(function(){
+const root = document.querySelector(".gsp");
+const $ = id => root.querySelector("#gsp-" + id);
+const num = id => parseFloat($(id).value) || 0;
+const DEPTHS = [0.6, 0.45, 0.3];
+const DOOR_REVEAL = 0.3;   // keep clear of the garage door frame
+const BOX = {w: 0.6, d: 0.4, h: 0.38}; // typical 64L storage box footprint and height
+
+function fmt(n, dp=2){ return (Math.round(n*10**dp)/10**dp).toLocaleString("en-GB"); }
+function pickDepth(space){ return DEPTHS.find(d => d <= space + 1e-9) || 0; }
+
+function plan(){
+  const W=num("w"), L=num("l"), H=num("h"), bw=num("bw"), bh=num("bh"), tiers=Math.max(1,parseInt($("tiers").value)||1), rating=num("rating");
+  const carOn = $("car").value !== "none";
+  const cw=num("cw"), cl=num("cl"), dd=num("dd"), dp=num("dp");
+  const alerts=[]; const walls=[];
+
+  let backDepth=0, leftDepth=0, rightDepth=0, carX=0, carY=0;
+  if (carOn){
+    if (cw + dd + dp > W) alerts.push(["bad",`The car (${fmt(cw)}m) plus door space (${fmt(dd+dp)}m) needs ${fmt(cw+dd+dp)}m, wider than the ${fmt(W)}m garage. Side shelving will not fit with the car inside.`]);
+    // back wall: whatever length is left behind the car, keeping clear of the door
+    backDepth = pickDepth(L - DOOR_REVEAL - cl - 0.3);
+    // UK cars are right-hand drive: driver door on the right (viewed from the garage door looking in).
+    // Shelving goes on the passenger (left) side first so the driver door stays clear.
+    const sideSpare = W - cw - dd - dp;
+    leftDepth = pickDepth(sideSpare);                  // passenger side
+    rightDepth = pickDepth(sideSpare - leftDepth);     // driver side, only if still room
+    carX = leftDepth + dp; carY = DOOR_REVEAL;
+  } else {
+    const aisle = 0.9;
+    backDepth = 0.6;
+    leftDepth = rightDepth = pickDepth((W - aisle)/2);
+  }
+  if (backDepth && L - backDepth < 1) backDepth = 0;
+
+  const sideRun = Math.max(0, L - DOOR_REVEAL - backDepth);
+  const backRun = W;
+  const add = (name, depth, run) => {
+    const bays = depth ? Math.floor((run + 1e-9) / bw) : 0;
+    walls.push({name, depth, bays, run});
+  };
+  add("Back wall", backDepth, backRun);
+  add(carOn ? "Driver-side wall (right)" : "Right wall", rightDepth, sideRun);
+  add(carOn ? "Passenger-side wall (left)" : "Left wall", leftDepth, sideRun);
+
+  const totalBays = walls.reduce((a,w)=>a+w.bays,0);
+  const tierGap = bh / tiers;
+  const boxesPerShelf = w => Math.floor(bw/BOX.d+1e-9) * Math.max(0, Math.floor(w.depth/BOX.w+1e-9));
+  const boxesPerShelfAlt = w => Math.floor(bw/BOX.w+1e-9) * Math.max(0, Math.floor(w.depth/BOX.d+1e-9));
+  const boxes = tierGap >= BOX.h + 0.05 ? walls.reduce((a,w)=>a + w.bays * tiers * Math.max(boxesPerShelf(w), boxesPerShelfAlt(w)),0) : 0;
+
+  if (bh > H) alerts.push(["bad",`The ${fmt(bh)}m bay is taller than the ${fmt(H)}m usable height. Choose a shorter bay or check the door track position.`]);
+  if (carOn && !backDepth) alerts.push(["warn",`With a ${fmt(cl)}m car, less than 0.3m is left behind it, so the back wall cannot take shelving. Wall-mounted or overhead storage may suit that space.`]);
+  walls.forEach(w => { if (w.depth && !w.bays) alerts.push(["warn",`${w.name}: ${fmt(w.run)}m of wall is shorter than one ${fmt(bw)}m bay. A narrower bay would fit there.`]); });
+  if (tierGap < BOX.h + 0.05) alerts.push(["warn",`Shelves are about ${fmt(tierGap*100,0)}cm apart, too tight for a standard 64L storage box (about 38cm tall). Fewer shelves per bay would help.`]);
+  if (carOn && leftDepth && leftDepth < 0.6) alerts.push(["warn",`The passenger side has room for ${leftDepth*1000}mm-deep shelving only. Shallow shelves suit paint tins, tools and small boxes.`]);
+  if (!alerts.length || alerts.every(a=>a[0]!=="bad")) alerts.push(["ok",`Heaviest items belong on the bottom shelf, and tall bays should be fixed to the wall. Shelves about ${fmt(tierGap*100,0)}cm apart fit standard storage boxes with room to lift them out.`]);
+
+  // summary
+  root.querySelector("#gsp-summary").innerHTML = `
+    <div class="stat"><small>Bays that fit</small><b>${totalBays}</b><small>${fmt(bw)}m wide each</small></div>
+    <div class="stat"><small>Shelf space</small><b>${fmt(walls.reduce((a,w)=>a+w.bays*bw*w.depth*tiers,0),1)} m²</b><small>${totalBays*tiers} shelves</small></div>
+    <div class="stat"><small>Total rated load</small><b>${(totalBays*rating).toLocaleString("en-GB")} kg</b><small>${rating}kg per bay</small></div>
+    <div class="stat"><small>64L boxes (approx.)</small><b>${boxes}</b><small>60 × 40 × 38cm each</small></div>`;
+  root.querySelector("#gsp-walls").innerHTML = walls.map(w=>`<tr><td>${w.name}</td><td>${w.depth? (w.depth*1000)+"mm" : "no room"}</td><td>${w.bays}</td></tr>`).join("");
+  root.querySelector("#gsp-alerts").innerHTML = alerts.map(a=>`<div class="alert ${a[0]}">${a[1]}</div>`).join("");
+
+  draw({W,L,bw,walls,backDepth,leftDepth,rightDepth,sideRun,carOn,cw,cl,carX,carY});
+  try{ localStorage.setItem("gsp", JSON.stringify([...root.querySelectorAll("input,select")].map(e=>[e.id,e.value]))); }catch(e){}
+}
+
+function draw(p){
+  const s = 80, pad = 30, Wpx = p.W*s, Lpx = p.L*s;
+  const svg = root.querySelector("#gsp-svg");
+  svg.setAttribute("viewBox", `0 0 ${Wpx+pad*2} ${Lpx+pad*2+20}`);
+  let g = `<rect x="${pad}" y="${pad}" width="${Wpx}" height="${Lpx}" fill="#fff" stroke="#14202e" stroke-width="3"/>`;
+  g += `<rect x="${pad+Wpx*0.1}" y="${pad+Lpx-3}" width="${Wpx*0.8}" height="6" fill="#9aa7b5"/>`;
+  g += `<text x="${pad+Wpx/2}" y="${pad+Lpx+22}" text-anchor="middle" font-size="14" fill="#5a6675">Garage door</text>`;
+  const shelf = (x,y,w,h,bays,vertical)=>{
+    let out = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#1f7a4d" fill-opacity=".18" stroke="#1f7a4d" stroke-width="2"/>`;
+    for (let i=1;i<bays;i++){
+      if (vertical) out += `<line x1="${x}" x2="${x+w}" y1="${y+i*p.bw*s}" y2="${y+i*p.bw*s}" stroke="#1f7a4d" stroke-width="2"/>`;
+      else out += `<line y1="${y}" y2="${y+h}" x1="${x+i*p.bw*s}" x2="${x+i*p.bw*s}" stroke="#1f7a4d" stroke-width="2"/>`;
+    }
+    return out;
+  };
+  const [back,right,left] = p.walls;
+  if (back.bays){ const w=back.bays*p.bw*s; g += shelf(pad+(Wpx-w)/2, pad, w, p.backDepth*s, back.bays, false); }
+  if (left.bays){ const h=left.bays*p.bw*s; g += shelf(pad, pad+p.backDepth*s, p.leftDepth*s, h, left.bays, true); }
+  if (right.bays){ const h=right.bays*p.bw*s; g += shelf(pad+Wpx-p.rightDepth*s, pad+p.backDepth*s, p.rightDepth*s, h, right.bays, true); }
+  if (p.carOn){
+    const cx = pad + p.carX*s, cy = pad + Lpx - (p.carY+p.cl)*s;
+    g += `<rect x="${cx}" y="${cy}" width="${p.cw*s}" height="${p.cl*s}" rx="18" fill="#14202e" fill-opacity=".12" stroke="#14202e" stroke-dasharray="6 4" stroke-width="2"/>`;
+    g += `<text x="${cx+p.cw*s/2}" y="${cy+p.cl*s/2}" text-anchor="middle" font-size="16" fill="#14202e">Car</text>`;
+  }
+  g += `<text x="${pad+Wpx/2}" y="${pad-10}" text-anchor="middle" font-size="14" fill="#5a6675">${fmt(p.W)}m wide × ${fmt(p.L)}m long</text>`;
+  svg.innerHTML = g;
+}
+
+function syncCar(){
+  const v = $("car").value;
+  root.querySelectorAll(".carf").forEach(e=>e.classList.toggle("is-hidden", v==="none"));
+  if (v!=="none" && v!=="custom"){ const [w,l]=v.split(","); $("cw").value=w; $("cl").value=l; }
+}
+$("preset").addEventListener("input", ()=>{ const v=$("preset").value; if(v!=="custom"){ const [w,l]=v.split(","); $("w").value=w; $("l").value=l; } plan(); });
+$("car").addEventListener("input", ()=>{ syncCar(); plan(); });
+["w","l"].forEach(id=>$(id).addEventListener("input",()=>{ $("preset").value="custom"; plan(); }));
+["cw","cl"].forEach(id=>$(id).addEventListener("input",()=>{ $("car").value="custom"; plan(); }));
+["h","dd","dp","bw","bh","tiers","rating"].forEach(id=>$(id).addEventListener("input",plan));
+
+try{ const saved=JSON.parse(localStorage.getItem("gsp")||"null"); if(saved) saved.forEach(([id,v])=>{ const e=root.querySelector("#"+id); if(e) e.value=v; }); }catch(e){}
+syncCar(); plan();
+})();
+</script>
+</body>
+</html>
